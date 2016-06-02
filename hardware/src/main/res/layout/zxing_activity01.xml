@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".camera.zxing.ZXingActivity01" >
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:id="@+id/create_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="是否增加logo"/>
+
+    <Button
+        android:id="@+id/createQRBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="生成二维码" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher" >
+    </ImageView>
+
+</LinearLayout>

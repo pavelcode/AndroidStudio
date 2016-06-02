@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.cblue.framework"
+        minSdkVersion 22
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+def Dagger2_Version = '+'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    // 1. Dagger 2.0
+    compile "com.google.dagger:dagger:$Dagger2_Version"
+    apt "com.google.dagger:dagger-compiler:$Dagger2_Version"
+    // 2.
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+
+}

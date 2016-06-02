@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroiStudio.iml" filepath="$PROJECT_DIR$/AndroiStudio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbar/actionbar.iml" filepath="$PROJECT_DIR$/actionbar/actionbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aidlserver/aidlserver.iml" filepath="$PROJECT_DIR$/aidlserver/aidlserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidumap/baidumap.iml" filepath="$PROJECT_DIR$/baidumap/baidumap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/broadcastreceiver/broadcastreceiver.iml" filepath="$PROJECT_DIR$/broadcastreceiver/broadcastreceiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cache/cache.iml" filepath="$PROJECT_DIR$/cache/cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customerview/customerview.iml" filepath="$PROJECT_DIR$/customerview/customerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/designpattern/designpattern.iml" filepath="$PROJECT_DIR$/designpattern/designpattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hardware/hardware.iml" filepath="$PROJECT_DIR$/hardware/hardware.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multimedia/multimedia.iml" filepath="$PROJECT_DIR$/multimedia/multimedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nonification/nonification.iml" filepath="$PROJECT_DIR$/nonification/nonification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pulltorefresh_library/pulltorefresh_library.iml" filepath="$PROJECT_DIR$/pulltorefresh_library/pulltorefresh_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdparty/thirdparty.iml" filepath="$PROJECT_DIR$/thirdparty/thirdparty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userinterface/userinterface.iml" filepath="$PROJECT_DIR$/userinterface/userinterface.iml" />
+    </modules>
+  </component>
+</project>

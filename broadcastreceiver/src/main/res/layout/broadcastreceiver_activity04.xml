@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/broadcastreceiver_activity04_btn01"
+        android:text="使用代码动态注册广播"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/broadcastreceiver_activity04_btn02"
+        android:text="使用代码动态取消注册广播"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/broadcastreceiver_activity04_btn03"
+        android:text="发送广播"/>
+
+
+
+</LinearLayout>

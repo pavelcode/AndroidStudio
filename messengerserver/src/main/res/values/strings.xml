@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MessengerServer</string>
+    <string name="title_activity_messenger_service_01">MessengerService_Activity01</string>
+</resources>

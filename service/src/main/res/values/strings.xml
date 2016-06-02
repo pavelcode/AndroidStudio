@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Service</string>
+    <string name="title_activity_messenger_service01">MessengerServiceActivity01</string>
+</resources>
