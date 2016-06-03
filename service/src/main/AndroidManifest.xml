@@ -25,13 +25,14 @@
         <service android:name=".BoundService01" />
         <service android:name=".BoundService02" />
         <service android:name=".IntentService01" />
-
         <service android:name=".messenger.MessengerService01">
             <intent-filter>
-                <action android:name="com.cblue.messengerserver.MessengerService01"/>
+                <action android:name="com.cblue.messengerserver.MessengerService01" />
             </intent-filter>
         </service>
 
+        <activity android:name=".StartServiceActivity04" />
+        <activity android:name=".MixServiceActivity01"></activity>
     </application>
 
 </manifest>
