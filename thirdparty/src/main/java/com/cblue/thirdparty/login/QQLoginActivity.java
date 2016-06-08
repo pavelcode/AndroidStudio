@@ -13,6 +13,9 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.Map;
 
+/**
+ * 友盟实现的第三方登录
+ */
 public class QQLoginActivity extends AppCompatActivity {
 
     UMShareAPI mShareAPI  = null;
