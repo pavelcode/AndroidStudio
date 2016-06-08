@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.cblue.thirdparty.jpushdemo.R;
 import com.umeng.analytics.MobclickAgent;
 
+/**
+ * 友盟的统计代码
+ */
 public class StatisticsActivity01 extends AppCompatActivity {
 
 
