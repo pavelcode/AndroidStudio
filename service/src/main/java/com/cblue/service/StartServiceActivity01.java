@@ -10,7 +10,9 @@ import android.widget.Button;
 /*
 *
 * 启动Service
-* 打印生命周期并传递参数
+* 暂停Service
+* 生命周期
+* 传值
 * 查看服务：设置-》应用程序-》正在运行
 * TODO
 * */
