@@ -8,6 +8,7 @@ import android.util.Log;
 
 /**
  * 接收到系统短信
+ * 添加权限RECEIVE_SMS
  * Created by pavel on 16/5/18.
  */
 public class BroadcastReceiver_SMS extends BroadcastReceiver{
