@@ -71,7 +71,7 @@ public class WebViewActivity03 extends AppCompatActivity implements TextView.OnE
                 break;
 
             case R.id.webview_activity03_btn3:
-                //清除历史
+                //清除历史之后，就不能再前进，后退了
                   webView.clearHistory();
                 break;
         }

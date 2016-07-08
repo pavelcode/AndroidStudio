@@ -3,26 +3,23 @@
 		<title>用户登陆</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<script type="text/javascript">
- function check(){
-    
-    var name = document.getElementById('username').value;
-    if(name.trim().length==0)
-      alert('请输入用户名');
-      return false;
-    }
-    var pass = document.getElementById('userpass').value;
-    if(pass.trim().length==0){
-      alert('请输入密码');
-      return false;
-    }
-    myobj.showMessage(name,pass);
-   
-    return true;
- }
+		 function check(){
 
+			var name = document.getElementById('username').value;
+			if(name.trim().length==0)
+			  alert('请输入用户名');
+			  return false;
+			}
+			var pass = document.getElementById('userpass').value;
+			if(pass.trim().length==0){
+			  alert('请输入密码');
+			  return false;
+			}
+			myobj.showMessage(name,pass);
 
-
-</script>
+			return true;
+		 }
+      </script>
 
 	</head>
 
