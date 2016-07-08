@@ -6,6 +6,9 @@ package com.cblue.a3dmgame.utils;
 public class PathUtils {
 
     //http://www.3dmgame.com/sitemap/api.php?row=<记录数>&typeid=<分类ID>&paging=1&page=n
+    //http://www.3dmgame.com/sitemap/api.php?row=10&typeid=1&paging=1&page=10
+
+
     public static String getArtcleListPath(int row, int id, int page) {
 
         return "http://www.3dmgame.com/sitemap/api.php?row=" + row + "&typeid="

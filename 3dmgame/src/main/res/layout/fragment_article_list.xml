@@ -27,7 +27,7 @@
             android:layout_width="5dp"
             android:layout_height="5dp"
             android:layout_margin="5dp"
-            android:background="@drawable/point_shape"
+            android:background="@drawable/articlefragment_viewpager_point_shape"
 
             />
         <View
@@ -35,7 +35,7 @@
             android:layout_width="5dp"
             android:layout_height="5dp"
             android:layout_margin="5dp"
-            android:background="@drawable/point_shape"
+            android:background="@drawable/articlefragment_viewpager_point_shape"
             />
 
         <View
@@ -43,7 +43,7 @@
             android:layout_width="5dp"
             android:layout_height="5dp"
             android:layout_margin="5dp"
-            android:background="@drawable/point_shape"
+            android:background="@drawable/articlefragment_viewpager_point_shape"
             />
 
     </LinearLayout>
@@ -52,10 +52,24 @@
 
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+  <!--  <TextView
         android:id="@+id/fragment_article_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="aaa" />
+        android:text="aaa" />-->
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr = "http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fragment_article_pull_refresh_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true"
+        ptr:ptrMode="both" />
+
+
 
 </LinearLayout>

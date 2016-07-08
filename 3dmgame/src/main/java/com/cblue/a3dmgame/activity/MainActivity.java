@@ -64,8 +64,8 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
         mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(),fragments);
         viewPager.setAdapter(mainViewPagerAdapter);
-        //设置预加载Fragment
-        viewPager.setOffscreenPageLimit(4);
+        //设置预加载Fragment的个数，当前页面和两边2页
+        viewPager.setOffscreenPageLimit(2);
 
     }
 
