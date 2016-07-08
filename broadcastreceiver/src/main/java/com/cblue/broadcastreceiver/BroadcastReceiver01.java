@@ -13,5 +13,6 @@ public class BroadcastReceiver01 extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i("aaa","BroadcastReceiver01接收到广播");
+
     }
 }

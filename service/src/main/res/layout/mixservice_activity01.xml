@@ -17,18 +17,8 @@
         android:id="@+id/mixservice_activity01_btn02"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="暂停音乐"/>
-
-    <Button
-        android:id="@+id/mixservice_activity01_btn03"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="继续播放"/>
-
-    <Button
-        android:id="@+id/mixservice_activity01_btn04"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="停止音乐"/>
+
+
 
 </LinearLayout>

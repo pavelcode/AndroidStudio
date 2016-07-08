@@ -14,19 +14,21 @@ import android.util.Log;
  *   <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
  * Created by pavel on 16/5/18.
  */
-public class BroadcastReceiver_StartOS extends BroadcastReceiver {
+public class BroadcastReceiver_OS extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Log.i("aaa","系统启动了") ;
-
+        if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+            Log.i("aaa","系统启动了") ;
         //打开新的Activity
         Intent intent1 = new Intent(context,BroadcastReceiverActivity01.class);
         //当广播启动一个Activity，需要提供一个任务栈
         intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent1);
-
+        }else if(Intent.ACTION_SHUTDOWN.equals(intent.getAction())){
+            Log.i("aaa","系统停止了") ;
+        }
 
     }
 }

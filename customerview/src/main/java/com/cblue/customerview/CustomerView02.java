@@ -15,6 +15,7 @@ public class CustomerView02 extends LinearLayout {
 
     public CustomerView02(Context context, AttributeSet attrs) {
         super(context, attrs);
+        //不能使用两个参数的
         LayoutInflater.from(context).inflate(R.layout.customerview02,this,true);
     }
 

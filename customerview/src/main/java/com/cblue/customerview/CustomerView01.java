@@ -32,7 +32,7 @@ public class CustomerView01 extends TextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //super.onDraw(canvas);
+        //super.onDraw(canvas);  TODO 记得注销掉
         Paint paint = new Paint();
         paint.setColor(Color.RED);
         paint.setFakeBoldText(true);

@@ -129,17 +129,16 @@ public class MediaPlayActivity01 extends AppCompatActivity implements SurfaceHol
     private void play() {
         try {
             mediaPlayer = new MediaPlayer();
-           // File file = new File( Environment.getExternalStorageDirectory()+File.separator+"girl.mp4");
-           // Log.i(TAG, file.getAbsolutePath());
-            // 重置为初始状态
+              // File file = new File( Environment.getExternalStorageDirectory()+File.separator+"girl.mp4");
+             // Log.i(TAG, file.getAbsolutePath());
+             // 重置为初始状态
             // mediaPlayer.reset();
             // 设置播放的音乐流类型
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             // 把视频图像输出到SurfaceView中
             mediaPlayer.setDisplay(mSurfaceHolder);
-            // 设置需要播放的视频 播放声音
-
-           // mediaPlayer.setDataSource(file.getAbsolutePath());
+            // 设置需要播放的视频
+            // mediaPlayer.setDataSource(file.getAbsolutePath());
             mediaPlayer.setDataSource(MediaPlayActivity01.this, Uri.parse("http://mp4.68mtv.com/mp43/37932-ONEREPUBLIC-stopandstare[68mtv.com].mp4"));
             // 缓冲
             mediaPlayer.prepare();

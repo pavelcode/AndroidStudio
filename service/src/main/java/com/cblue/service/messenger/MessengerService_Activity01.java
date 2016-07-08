@@ -18,31 +18,33 @@ import android.widget.Button;
 import com.cblue.service.R;
 
 /**
+ * Messenger客户端
  * 使用Messenger在不同进程中传递数据
- * Activity作为客户端，Service作为服务端
  * 当我们从客户端通过Messenger传递一个Message给服务端
  * 服务端也通过一个Messenger对象传递数据给服务端
- * Activity和Service在不同应用中
  */
 public class MessengerService_Activity01 extends AppCompatActivity {
 
 
     Button btn1;
     Intent intent;
-    Messenger messenger;
-    Messenger replyMessenger;
+    Messenger sendMessenger;//客户端发送信息的Messenger
+    Messenger clientMessenger; //被发送给服务端的Messenger
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messengerservice_activity01);
         btn1 = (Button)findViewById(R.id.messengerservice_activity01_btn01);
-        replyMessenger = new Messenger(handler);
+
+        clientMessenger = new Messenger(handler);
+        //连接Messenger服务端
         intent = new Intent();
         intent.setAction("com.cblue.messengerserver.MessengerService01");
         bindService(intent,new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                messenger= new Messenger(iBinder);
+                sendMessenger= new Messenger(iBinder);
+                Log.i("aaa","连接成功");
             }
 
             @Override
@@ -58,9 +60,10 @@ public class MessengerService_Activity01 extends AppCompatActivity {
                 Message msg = Message.obtain();
                 msg.arg1=1;
                 msg.arg2=2;
-                msg.replyTo = replyMessenger;
+                //把客户端的Messenger传递给服务端，让服务端知道发送消息的接收着
+                msg.replyTo = clientMessenger;
                 try {
-                    messenger.send(msg);
+                    sendMessenger.send(msg);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

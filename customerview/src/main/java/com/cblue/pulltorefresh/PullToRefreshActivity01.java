@@ -36,6 +36,7 @@ public class PullToRefreshActivity01 extends AppCompatActivity {
 
 
         ListView actualListView = mPullRefreshListView.getRefreshableView();
+
         mListItems = new LinkedList<String>();
         mListItems.addAll(Arrays.asList(mStrings));
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mListItems);

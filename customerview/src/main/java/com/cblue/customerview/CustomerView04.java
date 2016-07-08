@@ -31,8 +31,9 @@ public class CustomerView04 extends View {
     public CustomerView04(Context context, int screenWidth, int screenHeight) {
         super(context);
         // TODO Auto-generated constructor stub
+        //创建图片
         bitmap = Bitmap.createBitmap(screenWidth, screenHeight, Bitmap.Config.ARGB_8888);
-
+        //创建画布
         canvas = new Canvas(bitmap);
 
         paint = new Paint();
@@ -42,7 +43,7 @@ public class CustomerView04 extends View {
 
     }
 
-    //当我们开始触摸手机屏幕的时候，这里会得到手指的坐标
+    //当我们开始触摸手机屏幕的p，这里会得到手指的坐标
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // TODO Auto-generated method stub
@@ -56,30 +57,26 @@ public class CustomerView04 extends View {
                 path.moveTo(x, y);
                 mX = x;
                 mY = y;
-                invalidate();
                 break;
 
             case MotionEvent.ACTION_MOVE:
+                //得到滑动的间距
                 float dx = Math.abs(x-mX);
                 float dy = Math.abs(y-mY);
                 if(dx>=4||dy>=4){
                     path.lineTo(x, y);
+                    //出现实时路线效果
+                    canvas.drawPath(path, paint);
                 }
                 mX = x;
                 mY = y;
-                invalidate();
-
                 break;
 
             case MotionEvent.ACTION_UP:
 
-                path.lineTo(mX,mY);
-                //在画的这个路径，使用pait画笔，画到画布上
-                canvas.drawPath(path, paint);
-                invalidate();
                 break;
         }
-
+        invalidate();
 
         return true;
     }

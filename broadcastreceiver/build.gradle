@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.cblue.broadcastreceiver"
-        minSdkVersion 11
-        targetSdkVersion 23
+        minSdkVersion 7
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }

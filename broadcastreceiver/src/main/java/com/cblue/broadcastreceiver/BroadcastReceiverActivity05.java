@@ -29,12 +29,14 @@ public class BroadcastReceiverActivity05 extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.broadcastreceiver_activity05);
 
+
         manager = LocalBroadcastManager.getInstance(getApplicationContext());
 
         btn1 = (Button)findViewById(R.id.broadcastreceiver_activity05_btn01);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO
                 manager.sendBroadcast(new Intent().setAction("localboradcast"));
             }
         });
@@ -55,6 +57,7 @@ public class BroadcastReceiverActivity05 extends AppCompatActivity{
         super.onResume();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("localboradcast");
+        //TODO
         manager.registerReceiver(broadcastReceiver,intentFilter);
 
     }

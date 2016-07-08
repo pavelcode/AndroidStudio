@@ -15,20 +15,18 @@ public class SlidingPaneLayoutActivity01 extends AppCompatActivity {
     SlidingPaneLayout mSlidingPaneLayout;
 
     View mFullLeft;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.slidingpanelayout_activity01);
-
         mSlidingPaneLayout = (SlidingPaneLayout) findViewById(R.id.slidingpanelayout);
        // mSmallLeft = findViewById(R.id.small_left);
-        mFullLeft = findViewById(R.id.full_left);
 
+        mFullLeft = findViewById(R.id.full_left);
         mFullLeft.setAlpha(0);//默认 full侧栏隐藏 显示最小-预览式的侧栏
 
         mWebView = (WebView) findViewById(R.id.webview);
-
         WebSettings settings = mWebView.getSettings();
         settings.setJavaScriptEnabled(true);
         WebViewClient client = new WebViewClient();

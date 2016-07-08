@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -16,17 +17,17 @@ import android.widget.Button;
 import android.widget.Toast;
 
 /**
- * 使用DownLoadManager完成下载,并查看下载文件的路径
+ * 使用DownLoadManager完成下载,并查看下载文件的路径（只能针对HTTP协议）
  * Created by pavel on 16/5/19.
  */
 public class DownloadManagerActivity01 extends AppCompatActivity implements View.OnClickListener{
 
 
     DownloadManager downloadManager;
-    String url="http://bcscdn.baidu.com/netdisk/BaiduYun_7.12.1.apk";
+    String url="http://img13.360buyimg.com/vclist/jfs/t2653/171/2099795068/16081/e5adf358/57567ea9N546cbd87.jpg";
 
     Button btn1,btn2;
-    long downloadReference;
+    long downloadReference;  //下载任务的ID
 
     BroadcastReceiver receiver;
 
@@ -50,22 +51,14 @@ public class DownloadManagerActivity01 extends AppCompatActivity implements View
                 downloadManager = (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
                 Uri uri = Uri.parse(url);
                 DownloadManager.Request request = new DownloadManager.Request(uri);
-                //设置大文件在wifi下才能下载
-                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+                //设置大文件在wifi下才能下载(TODO这行不能添加，否则下载有问题)
+                //request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
                 //设置通知栏显示 (API11)
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
                 request.setTitle("下载");
                 request.setDescription("百度云APK");
-                //移动网络情况下是否允许漫游
-                request.setAllowedOverRoaming(false);
-                //设置文件可以被扫描到
-                request.allowScanningByMediaScanner();
-                //设置下载文件可以被看到
-                request.setVisibleInDownloadsUi(true);
-                //设置保存的路径  外部存储中的专用文件夹
-                request.setDestinationInExternalFilesDir(this,"","baiduyun.apk");
-                //外部存储的公共文件夹
-               // request.setDestinationInExternalPublicDir("","");
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"baiduyun.png");
+
                 //开始下载文件 返回的是下载请求的ID
                 downloadReference = downloadManager.enqueue(request);
                 Log.i("aaa","downloadReference="+downloadReference);
@@ -83,20 +76,17 @@ public class DownloadManagerActivity01 extends AppCompatActivity implements View
                         if(intent.getAction().equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)){
                             if(downloadReference==reference) {
                                 Toast.makeText(DownloadManagerActivity01.this, "编号：" + reference + "的下载任务已经完成！", Toast.LENGTH_SHORT).show();
-                                //查询下载的文件
+                                //构建查询对象
                                 DownloadManager.Query myDownloadQuery = new DownloadManager.Query();
                                 myDownloadQuery.setFilterById(reference);
-
+                                //开始查询
                                 Cursor myDownload = downloadManager.query(myDownloadQuery);
                                 if (myDownload.moveToFirst()) {
-                                    int fileNameIdx =
-                                            myDownload.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME);
-                                    int fileUriIdx =
-                                            myDownload.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI);
-
+                                    //得到文件名字的字段id
+                                    int fileNameIdx = myDownload.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME);
+                                    //得到文件名字
                                     String fileName = myDownload.getString(fileNameIdx);
-                                    String fileUri = myDownload.getString(fileUriIdx);
-                                    Log.d("aaa", fileName + " : " + fileUri);
+                                    Log.d("aaa", fileName);
                                 }
                                 myDownload.close();
                             }

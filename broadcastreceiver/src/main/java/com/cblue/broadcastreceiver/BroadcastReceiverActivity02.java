@@ -9,6 +9,8 @@ import android.widget.Button;
 
 /**
  * 使用隐示Intent发送无序广播和有序广播
+ * 无序广播进行传值
+ * 有序广播进行传值
  * Created by pavel on 16/5/18.
  */
 public class BroadcastReceiverActivity02 extends AppCompatActivity implements View.OnClickListener{

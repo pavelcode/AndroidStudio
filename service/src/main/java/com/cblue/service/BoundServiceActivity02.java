@@ -46,7 +46,7 @@ public class BoundServiceActivity02 extends AppCompatActivity implements View.On
                 break;
             case R.id.boundservice_activity02_btn2:
                 //停止音乐
-                myBinder.stop();
+                myBinder.pause();
                 break;
         }
 
@@ -60,6 +60,9 @@ public class BoundServiceActivity02 extends AppCompatActivity implements View.On
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
+            /**
+             *   该方法在正常情况下是不被调用的，当Service服务被异外销毁时，例如内存的资源不足时这个方法才被自动调用。
+             */
 
         }
     };

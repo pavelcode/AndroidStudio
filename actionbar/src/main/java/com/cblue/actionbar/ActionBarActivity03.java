@@ -23,8 +23,8 @@ public class ActionBarActivity03 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         actionBar = getSupportActionBar();
         if(actionBar!=null){
-            //显示标题
-            actionBar.setDisplayShowTitleEnabled(true);
+            //不显示标题
+            actionBar.setDisplayShowTitleEnabled(false);
             //显示应用图标可以被点击
             actionBar.setDisplayHomeAsUpEnabled(true);
         }

@@ -26,11 +26,11 @@ public class DrawerLayoutActivity01 extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+
     private ListView drawerLayout_LV;
     private String[] lvs = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
     private ArrayAdapter arrayAdapter;
-    private ImageView ivRunningMan;
-    private AnimationDrawable mAnimationDrawable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,7 @@ public class DrawerLayoutActivity01 extends AppCompatActivity {
 
             }
         };
+
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 

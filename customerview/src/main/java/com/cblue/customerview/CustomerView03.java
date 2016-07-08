@@ -30,6 +30,7 @@ public class CustomerView03 extends View {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.customerview_attr);
         drawable = typedArray.getDrawable(R.styleable.customerview_attr_image);
         txtvalue = typedArray.getString(R.styleable.customerview_attr_txt);
+        typedArray.recycle();
 
     }
 

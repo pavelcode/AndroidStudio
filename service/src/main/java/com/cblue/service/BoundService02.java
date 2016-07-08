@@ -8,6 +8,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import java.io.IOException;
+
 /**
  * Created by pavel on 16/5/19.
  */
@@ -21,12 +23,15 @@ public class BoundService02 extends Service {
 
         public void start(){
             if(mediaPlayer!=null){
+                //pause后只需要直接start就行了，但是stop后需要重新prepare后才能start。 但是直接用prepare会报错
                 mediaPlayer.start();
+
             }
         }
-        public void stop(){
+        public void pause(){
+
             if(mediaPlayer!=null){
-                mediaPlayer.stop();
+                mediaPlayer.pause();
             }
         }
     }
@@ -49,7 +54,6 @@ public class BoundService02 extends Service {
     @Override
     public void unbindService(ServiceConnection conn) {
         super.unbindService(conn);
-        myBinder.stop();
     }
 
     @Override

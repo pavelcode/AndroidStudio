@@ -23,7 +23,6 @@ public class LruCacheActivity01 extends AppCompatActivity {
     private FileUtils fileUtils;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

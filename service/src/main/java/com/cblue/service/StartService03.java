@@ -18,6 +18,7 @@ public class StartService03 extends Service {
         super.onCreate();
         if(mediaPlayer==null){
             mediaPlayer = MediaPlayer.create(this,R.raw.beautiful);
+            //TODO 只能使用setLooping，不能使用prepared
             mediaPlayer.setLooping(true);
         }
     }

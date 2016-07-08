@@ -1,2 +1,2 @@
-include ':userinterface', ':actionbar', ':nonification', ':broadcastreceiver', ':service', ':aidlserver', ':baidumap', ':cache', ':multimedia', ':customerview', ':designpattern', ':hardware', ':thirdparty', ':framework'
+include ':userinterface', ':actionbar', ':nonification', ':broadcastreceiver', ':service', ':aidlserver', ':baidumap', ':multimedia', ':customerview', ':designpattern', ':hardware', ':thirdparty', ':framework', ':3dmgame'
 include ':pulltorefresh_library'

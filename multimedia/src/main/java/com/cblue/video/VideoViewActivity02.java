@@ -50,7 +50,7 @@ public class VideoViewActivity02 extends Activity implements View.OnClickListene
         //videoView.setVideoPath(path);
         //播放网络视频
         //http://mp4.68mtv.com/mp43/37932-ONEREPUBLIC-stopandstare[68mtv.com].mp4
-        videoView.setVideoURI(Uri.parse("http://mp4.68mtv.com/mp43/37932-ONEREPUBLIC-stopandstare[68mtv.com].mp4"));
+        videoView.setVideoURI(Uri.parse("http://video.jiecao.fm/5/1/%E8%87%AA%E5%8F%96%E5%85%B6%E8%BE%B1.mp4"));
         //videoView.setVideoURI(Uri.parse(pathString));
         //设置请求焦点
         videoView.requestFocus();

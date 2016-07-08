@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:actionbar="http://schemas.android.com/apk/res-auto">
 
+      <!--
+       withText.collapseActionView 不能用，不出出现折叠效果
+       也不会出现折叠
+      -->
     <item
         android:id="@+id/item_show01"
         android:title="show01"

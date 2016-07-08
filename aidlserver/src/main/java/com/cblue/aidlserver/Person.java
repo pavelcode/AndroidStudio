@@ -40,6 +40,23 @@ public class Person implements Parcelable {
 
     }
 
+    public Person(Parcel parcel){
+        name = parcel.readString();
+        age = parcel.readInt();
+    }
+
+    public static final Creator<Person> CREATOR = new Creator<Person>() {
+        @Override
+        public Person createFromParcel(Parcel parcel) {
+            return new Person(parcel);
+        }
+
+        @Override
+        public Person[] newArray(int i) {
+            return new Person[i];
+        }
+    };
+
     public Person(){
 
     }
@@ -57,22 +74,7 @@ public class Person implements Parcelable {
                 '}';
     }
 
-    public Person(Parcel parcel){
-        name = parcel.readString();
-        age = parcel.readInt();
-    }
 
-    public static final Creator<Person> CREATOR = new Creator<Person>() {
-        @Override
-        public Person createFromParcel(Parcel parcel) {
-            return new Person(parcel);
-        }
-
-        @Override
-        public Person[] newArray(int i) {
-            return new Person[i];
-        }
-    };
 }
 
 

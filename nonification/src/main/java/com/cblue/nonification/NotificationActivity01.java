@@ -84,7 +84,6 @@ public class NotificationActivity01 extends AppCompatActivity implements View.On
                             }
                         }
                         builder.setContentText("下载完成");
-                        builder.setProgress(0, 0, false);
 
                         // id相同，使用新设置的属性的通知，代替之前的通知
                         manager.notify(0, builder.build());
