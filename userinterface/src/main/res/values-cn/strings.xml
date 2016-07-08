@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">AndroidStudio</string>
-    <string name="welcome">hello</string>
+    <string name="welcome">你好</string>
 </resources>
