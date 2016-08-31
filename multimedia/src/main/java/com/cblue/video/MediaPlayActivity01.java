@@ -15,6 +15,8 @@ import android.widget.Button;
 import com.cblue.image.R;
 
 /**
+ *
+ *
  * 使用4.2版本可以显示图像,使用2.2.3不行
  * MediaPlayer+SurfaceHolder播放视频
  * MediaPlayer播放声音
@@ -64,7 +66,7 @@ public class MediaPlayActivity01 extends AppCompatActivity implements SurfaceHol
         // Surface类型 设置surfaceview不维护自己的缓冲区，而是等待屏幕的渲染引擎将内容推送到用户面前
         // deprecated in API level 11. this is ignored, this value is set
         // automatically when needed.
-        //网上信息说4.0之上就不需要设置了，自动设置 还没有试验过
+        //网上信息说4.0之上就不需要设置了，自动设置 这句不能少
         mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         OnClickListener listener = new OnClickListener() {
@@ -81,7 +83,7 @@ public class MediaPlayActivity01 extends AppCompatActivity implements SurfaceHol
                     case R.id.surface_btn2:
                         if (mediaPlayer != null) {
                             //如果没有被释放，也没有暂停，就暂停，否则就开始
-                            if(!isReleased) {
+                        //    if(!isReleased) {
                                 if(!isPaused) {
                                     mediaPlayer.pause();
                                     isPaused = true;
@@ -89,31 +91,29 @@ public class MediaPlayActivity01 extends AppCompatActivity implements SurfaceHol
                                     mediaPlayer.start();
                                     isPaused = false;
                                 }
-                            }
+                         //   }
                         }
 
                         break;
                     // 重置
                     case R.id.surface_btn3:
                         //如果没有没有被释放,就跳转到开始位置
-                        if(!isReleased){
+                       // if(!isReleased){
                             if (mediaPlayer != null)
                             {
                                 mediaPlayer.seekTo(0);
                             }
-                        }
+                      //  }
                         break;
                     // 停止
                     case R.id.surface_btn4:
-                        if (mediaPlayer != null)
-                        {
+                        if (mediaPlayer != null) {
                             //如果没有被释放，就停止，并释放
-                            if(!isReleased)
-                            {
+                          //  if(!isReleased) {
                                 mediaPlayer.stop();
                                 mediaPlayer.release();
                                 isReleased = true;
-                            }
+                         //   }
                         }
                         break;
                 }

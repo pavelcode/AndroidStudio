@@ -18,6 +18,8 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 
 /**
+ * https://github.com/lipangit/JieCaoVideoPlayer/
+ * http://blog.csdn.net/qiushi_1990/article/details/50896130
  *  最低版本在14以上
  */
 public class ListViewVedioActivity extends AppCompatActivity {
@@ -49,7 +51,6 @@ class VideoListAdapter extends BaseAdapter {
             "http://img4.jiecaojingxuan.com/2016/3/14/2204a578-609b-440e-8af7-a0ee17ff3aee.jpg"};
     String[] title = {"嫂子真紧", "嫂子抬腿"};
 
-    int[] videoIndexs = {0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1};
 
     Context context;
 
@@ -59,7 +60,7 @@ class VideoListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return videoIndexs.length;
+        return video.length;
     }
 
     @Override
@@ -85,12 +86,12 @@ class VideoListAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
-        viewHolder.jcVideoPlayer.setUp(video[videoIndexs[position]], title[videoIndexs[position]]);
-
+        //加载视频和标题
+        viewHolder.jcVideoPlayer.setUp(video[position], title[position]);
+        //加载图片
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(context));
-        imageLoader.displayImage(pic[videoIndexs[position]], viewHolder.jcVideoPlayer.thumbImageView);
+        imageLoader.displayImage(pic[position], viewHolder.jcVideoPlayer.thumbImageView);
 
         return convertView;
     }

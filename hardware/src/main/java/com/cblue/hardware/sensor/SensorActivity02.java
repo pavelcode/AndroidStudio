@@ -49,7 +49,6 @@ public class SensorActivity02 extends AppCompatActivity {
 
         }
     }
-
     @Override
     protected void onPause() {
         super.onPause();

@@ -11,8 +11,12 @@ public class Goods {
 		this.number = number;
 	}
 
-	private boolean state;
+
 	private String id;
+	private String name;
+	private int number;
+	private String price;
+	private boolean state;//是否被选中
 
 	public boolean isState() {
 		return state;
@@ -22,7 +26,7 @@ public class Goods {
 		this.state = state;
 	}
 
-	private String name;
+
 
 	public String getId() {
 		return id;
@@ -56,7 +60,6 @@ public class Goods {
 		this.number = number;
 	}
 
-	private String price;
-	private int number;
+
 
 }

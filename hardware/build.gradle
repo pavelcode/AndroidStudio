@@ -6,6 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.cblue.hardware"
+        multiDexEnabled true
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
@@ -24,6 +25,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+    compile group: 'com.google.zxing', name: 'core', version: '3.2.1'
+    compile group: 'com.google.zxing', name: 'android-core', version: '3.2.1'
    // compile 'com.journeyapps:zxing-android-legacy:+@aar'
    // compile 'com.journeyapps:zxing-android-integration:+@aar'
 }

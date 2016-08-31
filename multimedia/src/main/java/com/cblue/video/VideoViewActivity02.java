@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.cblue.image.R;
 /**
  * VideoView播放视频
  * 全屏显示   切换横竖屏
+ * 是使用自定义布局
  *
  * onRestoreInstanceState onSaveInstanceState 不成功  onSaveInstanceState不执行
  */
@@ -27,6 +29,8 @@ public class VideoViewActivity02 extends Activity implements View.OnClickListene
     VideoView videoView;
     boolean isFullScreen = false;
     MediaController controller;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,10 +97,14 @@ public class VideoViewActivity02 extends Activity implements View.OnClickListene
                     layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                     videoView.setLayoutParams(layoutParams);
 
-                    isFullScreen = true;//改变全屏/窗口的标记
+                    isFullScreen = true;//改变全屏/窗口的标记.
                     btn1.setText("窗口模式");
                 }else{//设置RelativeLayout的窗口模式
-                    RelativeLayout.LayoutParams lp=new  RelativeLayout.LayoutParams(320,240);
+                    DisplayMetrics displayMetrics = new DisplayMetrics();
+                    getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                    int screenwidth = displayMetrics.widthPixels;
+                    int scrrenheight = displayMetrics.heightPixels;
+                    RelativeLayout.LayoutParams lp=new  RelativeLayout.LayoutParams(screenwidth,scrrenheight/2);
                     lp.addRule(RelativeLayout.CENTER_IN_PARENT);
                     videoView.setLayoutParams(lp);
                     isFullScreen = false;//改变全屏/窗口的标记
@@ -106,17 +114,30 @@ public class VideoViewActivity02 extends Activity implements View.OnClickListene
                 break;
             case R.id.horizontal_screen:
                 //如果是竖屏，切换横屏
-                int currentPosition =  videoView.getCurrentPosition();
-                Log.i("aaa","horizontal_screen---"+currentPosition);
                 if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 }else{
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 }
-                videoView.seekTo(currentPosition);
-                videoView.start();
-
                 break;
         }
+    }
+
+
+    static  int currentPosition; //保存当前进度
+
+    //保存当前进入，切换横竖屏之后，继续播放
+    @Override
+    protected void onResume() {
+        super.onResume();
+        videoView.seekTo(currentPosition);
+        videoView.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        videoView.pause();
+        currentPosition = videoView.getCurrentPosition();
     }
 }

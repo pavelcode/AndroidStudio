@@ -32,7 +32,8 @@ public class TextInputLayoutActivity01 extends AppCompatActivity implements View
         setContentView(R.layout.textinputlayout_activity01);
 
         textInputLayout = (TextInputLayout)findViewById(R.id.textinputlayout_activity01_til);
-        textInputLayout.setHint("aaa");
+        //提示信息
+        textInputLayout.setHint("请输入字母数字");
         btn = (Button) findViewById(R.id.textinputlayout_activity01_btn);
         btn.setOnClickListener(this);
         //开启错误提示功能

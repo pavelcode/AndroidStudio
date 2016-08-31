@@ -20,7 +20,7 @@ public class StatisticsActivity01 extends AppCompatActivity {
         setContentView(R.layout.statistics_activity01);
         // SDK在统计Fragment时，需要关闭Activity自带的页面统计，
         // 然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
-        MobclickAgent.openActivityDurationTrack(false);
+         MobclickAgent.openActivityDurationTrack(false);
         // MobclickAgent.setSessionContinueMillis(1000);
          MobclickAgent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(StatisticsActivity01.this, "574d53f267e58efcc7000ca7", "cblue", MobclickAgent.EScenarioType.E_UM_NORMAL));
          MobclickAgent.setScenarioType(StatisticsActivity01.this, MobclickAgent.EScenarioType.E_UM_NORMAL);

@@ -9,6 +9,7 @@ import android.widget.VideoView;
 import com.cblue.image.R;
 
 /**
+ * 使用真机测试
  * VideoView播放视频
  * Created by pavel on 16/5/26.
  */
@@ -17,13 +18,6 @@ public class VideoViewActivity01 extends AppCompatActivity {
     MediaController controller;
     public static final String TAG = "VideoPlayActivity";
 
-    /*
-     http://vf1.mtime.cn/Video/2015/03/20/mp4/150320094140850937_480.mp4；
-     http://biggame1.b0.upaiyun.com/mp4/551afdd301f2de21adac87045f4b2c3f.mp4；
-     http://biggame1.b0.upaiyun.com/mp4/09b3e57ac49db94cc8ad6afc2e926ae9.mp4；
-     http://biggame1.b0.upaiyun.com/video/c62d78f7a3f87bde8d56ca63016aacde.mp4；
-     http://biggame1.b0.upaiyun.com/video/a9d366a3c18911e631bf9327d458feb9.mp4
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +34,16 @@ public class VideoViewActivity01 extends AppCompatActivity {
         //String path = Environment.getExternalStorageDirectory()+ File.separator+"girl.mp4";
         //Log.i(TAG, path);
         //videoView.setVideoPath(path);
-         //播放网络视频
-        //http://mp4.68mtv.com/mp43/37932-ONEREPUBLIC-stopandstare[68mtv.com].mp4
-        videoView.setVideoURI(Uri.parse("http://mp4.68mtv.com/mp43/37932-ONEREPUBLIC-stopandstare[68mtv.com].mp4"));
+          /*
+          播放网络视频
+     http://vf1.mtime.cn/Video/2015/03/20/mp4/150320094140850937_480.mp4；
+     http://biggame1.b0.upaiyun.com/mp4/551afdd301f2de21adac87045f4b2c3f.mp4；
+     http://biggame1.b0.upaiyun.com/mp4/09b3e57ac49db94cc8ad6afc2e926ae9.mp4；
+     http://biggame1.b0.upaiyun.com/video/c62d78f7a3f87bde8d56ca63016aacde.mp4；
+     http://biggame1.b0.upaiyun.com/video/a9d366a3c18911e631bf9327d458feb9.mp4
+     */
+
+        videoView.setVideoURI(Uri.parse("http://vf1.mtime.cn/Video/2015/03/20/mp4/150320094140850937_480.mp4"));
         //videoView.setVideoURI(Uri.parse(pathString));
         //设置请求焦点
         videoView.requestFocus();

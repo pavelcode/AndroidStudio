@@ -15,12 +15,22 @@ import android.widget.Toast;
 
 import com.cblue.hardware.R;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
+import java.util.Hashtable;
+
+
+/**
+ * 添加
+ *   compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+     compile group: 'com.google.zxing', name: 'core', version: '3.2.1'
+ */
 public class ZxingEmbeddedActivity01 extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -49,21 +59,48 @@ public class ZxingEmbeddedActivity01 extends AppCompatActivity implements View.O
                 //创建二维码
                 str = et.getText().toString();
                 if(str != null){
-                Bitmap bitmap = createQRCode(str);
-                 img.setImageBitmap(bitmap);
+                   Bitmap bitmap = createQRCode(str);
+                   img.setImageBitmap(bitmap);
                 }
-
                 break;
             case R.id.zxing_embedded_scanQRBtn:
-                //扫描二维码
+                //扫描二维码  Integrator积分器
                 IntentIntegrator integrator = new IntentIntegrator(this);
-                integrator.setPrompt("请扫描"); //底部的提示文字，设为""可以置空
-                integrator.setCameraId(0); //前置或者后置摄像头
+                integrator.setPrompt("请扫描"); //底部的提示文字，设为""可以置空  Prompt提示
+                integrator.setCameraId(0); //前置或者后置摄像头 0后置  1前置
                 // integrator.setBeepEnabled(false); //扫描成功的「哔哔」声，默认开启
                 integrator.initiateScan();
                 break;
         }
 
+    }
+
+
+    private Bitmap createQRCode(String qrCodeString){
+        Bitmap bmp = null;    //二维码图片
+        QRCodeWriter writer = new QRCodeWriter();
+        try {
+            //设置编码方式，否则出现乱码
+            Hashtable<EncodeHintType, String> hints = new Hashtable<EncodeHintType, String>();
+            hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
+            BitMatrix bitMatrix = writer.encode(qrCodeString, BarcodeFormat.QR_CODE, 512, 512,hints); //参数分别表示为: 条码文本内容，条码格式，宽，高
+            int width = bitMatrix.getWidth();
+            int height = bitMatrix.getHeight();
+            bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+
+            //绘制每个像素
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    // bitMatrix.get 判断x，y坐标点是否是矩阵中的值
+                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                }
+            }
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+
+        return bmp;
     }
 
     @Override
@@ -82,26 +119,4 @@ public class ZxingEmbeddedActivity01 extends AppCompatActivity implements View.O
     }
 
 
-    private Bitmap createQRCode(String qrCodeString){
-        Bitmap bmp = null;    //二维码图片
-        QRCodeWriter writer = new QRCodeWriter();
-        try {
-            BitMatrix bitMatrix = writer.encode(qrCodeString, BarcodeFormat.QR_CODE, 512, 512); //参数分别表示为: 条码文本内容，条码格式，宽，高
-            int width = bitMatrix.getWidth();
-            int height = bitMatrix.getHeight();
-            bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-
-            //绘制每个像素
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
-                }
-            }
-
-        } catch (WriterException e) {
-            e.printStackTrace();
-        }
-
-        return bmp;
-    }
 }

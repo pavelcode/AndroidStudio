@@ -23,7 +23,7 @@ public class QQLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qqlogin_activity);
-        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        PlatformConfig.setQQZone("100424468","c7394704798a158208a74ab60104f0ba");
         mShareAPI = UMShareAPI.get(this);
         if(mShareAPI!=null){
             SHARE_MEDIA platform =  SHARE_MEDIA.QQ;

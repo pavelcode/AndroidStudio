@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cblue.androidstudio.R;
 
@@ -19,11 +20,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     Context context;
     List<RecyclerViewItem> items;
+
     OnRecyclerViewItemClickListener listener;
 
     public void setItemClickListener(OnRecyclerViewItemClickListener listener){
         this.listener = listener;
     }
+
+
+    //定义点击接口
+    interface OnRecyclerViewItemClickListener{
+        void onItemClickListener(View v,int position);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(listener!=null){
+            listener.onItemClickListener(view,(int)view.getTag());
+        }
+    }
+
 
 
     public RecyclerViewAdapter(Context context,List<RecyclerViewItem> items){
@@ -39,12 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return recyclerViewHolder;
     }
 
-    @Override
-    public void onClick(View view) {
-        if(listener!=null){
-            listener.onItemClickListener(view,(String)view.getTag());
-        }
-    }
 
     //相当于ListView中getView，设置每一个item的布局
     @Override
@@ -59,7 +69,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.textView.setText(item.getMsg());
         holder.imageView.setImageResource(item.getImgID());
-        holder.itemView.setTag(item.getMsg());
+        //设置消息
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -67,10 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return items.size();
     }
 
-    //定义点击接口
-    interface OnRecyclerViewItemClickListener{
-       public void onItemClickListener(View v,String data);
-    }
+
 
 
     class RecyclerViewHolder extends RecyclerView.ViewHolder {

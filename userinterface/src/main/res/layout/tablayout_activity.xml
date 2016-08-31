@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.cblue.android5.TabLayoutActivity">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout_activity_tl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="#00ff00"
+        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="#ff0000"
+        app:tabMode="scrollable"
+        app:tabGravity="center"/>
+
+    <!--
+       tabIndicatorColor tab指示器的颜色
+       tabTextColor 文字颜色
+       tabSelectedTextColor 选择文字的颜色
+       TabMode:布局中Tab的行为模式（behavior mode），有两种值：MODE_FIXED 和 MODE_SCROLLABLE。
+       MODE_FIXED:固定tabs，并同时显示所有的tabs。
+       MODE_SCROLLABLE：可滚动tabs，显示一部分tabs，在这个模式下能包含长标签和大量的tabs，最好用于用户不需要直接比较tabs。
+    -->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tablayout_activity_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" />
+
+
+</LinearLayout>

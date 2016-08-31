@@ -29,7 +29,7 @@ public class QRCodeUtil {
      * @param heightPix 图片高度
      * @param logoBm    二维码中心的Logo图标（可以为null）
      * @param filePath  用于存储二维码图片的文件路径
-     * @return 生成二维码及保存文件是否成功
+     * @return 生成二维码及保存文件是否成功n
      */
     public static boolean createQRImage(String content, int widthPix, int heightPix, Bitmap logoBm, String filePath) {
         try {
@@ -69,6 +69,7 @@ public class QRCodeUtil {
 
             // 生成二维码图片的格式，使用ARGB_8888
             Bitmap bitmap = Bitmap.createBitmap(widthPix, heightPix, Bitmap.Config.ARGB_8888);
+            // 每行跳过的颜色数量，一般就是宽度，也可以大于宽度
             bitmap.setPixels(pixels, 0, widthPix, 0, 0, widthPix, heightPix);
 
             if (logoBm != null) {
@@ -76,7 +77,7 @@ public class QRCodeUtil {
             }
 
             //必须使用compress方法将bitmap保存到文件中再进行读取。直接返回的bitmap是没有任何压缩的，内存消耗巨大！
-            return bitmap != null && bitmap.compress(Bitmap.CompressFormat.JPEG, 100, new FileOutputStream(filePath));
+            return bitmap.compress(Bitmap.CompressFormat.JPEG, 100, new FileOutputStream(filePath));
 
         } catch (WriterException | IOException e) {
             e.printStackTrace();
@@ -112,15 +113,17 @@ public class QRCodeUtil {
         }
 
         //logo大小为二维码整体大小的1/5
-        float scaleFactor = srcWidth * 1.0f / 5 / logoWidth;
+        //float scaleFactor = srcWidth * 1.0f / 5 / logoWidth;
 
         Bitmap bitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
         try {
             Canvas canvas = new Canvas(bitmap);
             canvas.drawBitmap(src, 0, 0, null);
-            canvas.scale(scaleFactor, scaleFactor, srcWidth / 2, srcHeight / 2);
+            //x轴的缩放比率  y轴缩放比率 X轴的中心点 Y轴的中心点
+          //  canvas.scale(scaleFactor, scaleFactor, srcWidth / 2, srcHeight / 2);
+            //画logo X轴的开始位置，Y轴的开始位置
             canvas.drawBitmap(logo, (srcWidth - logoWidth) / 2, (srcHeight - logoHeight) / 2, null);
-
+            //保存所有内容
             canvas.save(Canvas.ALL_SAVE_FLAG);
             canvas.restore();
         } catch (Exception e) {

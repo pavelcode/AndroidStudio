@@ -21,7 +21,7 @@ public class CoordinatorLayoutActivity01 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coordinatorlayout_activity01);
-        coordinatorLayout = (CoordinatorLayout)findViewById(R.id.coordinatorlayout_activity01_cl);
+
         floatingActionButton = (FloatingActionButton)findViewById(R.id.coordinatorlayoutactivity01_fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

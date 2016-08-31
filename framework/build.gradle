@@ -34,6 +34,6 @@ dependencies {
     apt 'com.google.dagger:dagger-compiler:2.0.2'
     compile 'org.glassfish:javax.annotation:10.0-b28'
     //ormlite
-    compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.48'
-
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
 }

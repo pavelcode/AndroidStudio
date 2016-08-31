@@ -60,7 +60,7 @@
 
         <!-- For test only 测试的主程序 -->
         <activity
-            android:name="com.cblue.thirdparty.pay.shoppingcart.ShopCarMainActivity"
+            android:name="com.cblue.thirdparty.pay.alipay.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,6 +68,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
             android:excludeFromRecents="true"
@@ -194,6 +195,11 @@
             android:name="JPUSH_APPKEY"
             android:value="1eabdf1c185b4f9de4d8a508" /> <!-- </>值来自开发者平台取得的AppKey -->
 
+
+
+
+
+
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="574d53f267e58efcc7000ca7"></meta-data>
@@ -218,6 +224,11 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+
+        <activity android:name="com.cblue.thirdparty.pay.alipay.PayDemoActivity"/>
+
     </application>
 
 </manifest>

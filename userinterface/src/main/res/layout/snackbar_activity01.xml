@@ -13,11 +13,4 @@
         android:text="显示snakebar"/>
 
 
-    <View
-        android:id="@+id/snackbar_acitivity01_view01"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></View>
-
-
-
 </LinearLayout>

@@ -80,6 +80,7 @@ public class ShopCarAdapter extends BaseAdapter {
 		CheckBox cb = (CheckBox) convertView.findViewById(R.id.checkBox);
 		
 		final Goods goods = list.get(position);
+
 		convertView.setOnClickListener(new OnClickListener() {
 
 			@Override

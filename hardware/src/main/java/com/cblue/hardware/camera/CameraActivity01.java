@@ -68,8 +68,7 @@ public class CameraActivity01 extends AppCompatActivity  {
 
     //保存图片到SD卡上
     public static String savePicToSdcard(Bitmap bitmap, String path, String fileName) {
-            String  filePath=path+ fileName;
-            File destFile = new File(filePath);
+            File destFile = new File(path,fileName);
             OutputStream os = null;
             try {
                 os = new FileOutputStream(destFile);
@@ -79,7 +78,7 @@ public class CameraActivity01 extends AppCompatActivity  {
             } catch (IOException e) {
                e.printStackTrace();
             }
-        return filePath;
+        return destFile.getAbsolutePath();
     }
 
 

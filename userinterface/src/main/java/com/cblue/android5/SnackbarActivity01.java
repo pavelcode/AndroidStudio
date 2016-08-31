@@ -12,13 +12,13 @@ import com.cblue.androidstudio.R;
 
 
 /**
+ * 类似于Toast效果
  * 设置Snackbar，动作，动作文字颜色
  */
 public class SnackbarActivity01 extends AppCompatActivity implements View.OnClickListener {
 
 
     Button btn1;
-    View showView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,6 @@ public class SnackbarActivity01 extends AppCompatActivity implements View.OnClic
         btn1 = (Button)findViewById(R.id.snackbar_acitivity01_btn01);
         btn1.setOnClickListener(this);
 
-        showView = findViewById(R.id.snackbar_acitivity01_view01);
     }
 
     @Override
@@ -36,6 +35,7 @@ public class SnackbarActivity01 extends AppCompatActivity implements View.OnClic
             case R.id.snackbar_acitivity01_btn01:
                 //最简单的snackbar
                 //Snackbar.make(view,"mysnack",Snackbar.LENGTH_LONG).show();
+
                 //添加action的snackbar
                 /*
                 Snackbar.make(view,"snakckaction",Snackbar.LENGTH_LONG).setAction("myaction", new View.OnClickListener() {
@@ -45,8 +45,9 @@ public class SnackbarActivity01 extends AppCompatActivity implements View.OnClic
                     }
                 }).show();
                 */
-               //设置snackbar的action颜色
+
                 Snackbar snackbar = Snackbar.make(view,"snackcolor",Snackbar.LENGTH_LONG);
+                //设置snackbar的action颜色
                 snackbar.setActionTextColor(Color.parseColor("#ff0000"));
                 snackbar.setAction("snackcoloraction", new View.OnClickListener() {
                     @Override

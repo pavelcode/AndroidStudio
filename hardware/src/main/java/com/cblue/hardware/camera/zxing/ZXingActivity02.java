@@ -11,6 +11,11 @@ import android.widget.TextView;
 import com.cblue.hardware.R;
 import com.google.zxing.client.android.CaptureActivity;
 
+/**
+ *  使用zxing扫描二维码，显示内容
+ *  添加Zxing包中Android包下的内容
+ *  compile group: 'com.google.zxing', name: 'android-core', version: '3.2.1'
+ */
 public class ZXingActivity02 extends AppCompatActivity {
 
 

@@ -26,4 +26,12 @@
         app:pressedTranslationZ="12dp"
         android:src="@mipmap/ic_launcher"/>
 
+    <!--
+    backgroundTint 背景颜色
+    rippleColor 点击时的颜色
+    elevation 阴影
+    fabSize 图标大小
+    pressedTranslationZ 点击状态阴影深度
+    -->
+
 </RelativeLayout>

@@ -21,6 +21,7 @@ import java.util.List;
 
 /**
  * 简单的实现购物车的业务
+ *
  * @author pavel
  *
  */
@@ -43,9 +44,9 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.shopcart_listview);
 		lv = (ListView) findViewById(R.id.listView);
 		
-		bottomView = (LinearLayout) findViewById(R.id.bottomView);
+		//bottomView = (LinearLayout) findViewById(R.id.bottomView);
 		// 设置透明度
-		bottomView.getBackground().setAlpha(30);
+		//bottomView.getBackground().setAlpha(30);
 		
 		deleteBt = (Button) findViewById(R.id.deleteBt);
 		allpriceTv = (TextView) findViewById(R.id.allPrice);
@@ -54,6 +55,7 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 		jiesuanBt.setOnClickListener(this);
 		
 		getData();
+
 		adapter = new ShopCarAdapter(list, this);
 		lv.setAdapter(adapter);
 		
@@ -65,8 +67,7 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		list = new ArrayList<Goods>();
 		for (int i = 0; i < 10; i++) {
-			list.add(new Goods(false, i + "", "商品" + i, ((double) i * 10 / 4)
-					+ 0.1 + "", 1));
+			list.add(new Goods(false, i + "", "商品" + i, ((double) i * 10 / 4)+ 0.1 + "", 1));
 		}
 	}
 
@@ -85,8 +86,7 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 			delete();
 			break;
 		case R.id.jiesuanBt:
-			//pay();
-			Toast.makeText(getApplicationContext(),"跳转到订单界面", 1).show();
+			Toast.makeText(getApplicationContext(),"跳转到订单界面", Toast.LENGTH_LONG).show();
 			break;
 		default:
 			break;
@@ -94,7 +94,7 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 	}
 
 
-	private void pay() {
+	private void calculate() {
 		// TODO Auto-generated method stub
 		String sum = "0";
 		int numSum = 0;
@@ -103,8 +103,7 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 			Goods goods = list.get(i);
 			boolean state = goods.isState();
 			if (state) {
-				sum = MathUtils.add(sum + "",
-						MathUtils.mul(goods.getNumber() + "", goods.getPrice()));
+				sum = MathUtils.add(sum + "", MathUtils.mul(goods.getNumber() + "", goods.getPrice()));
 				numSum = numSum + goods.getNumber();
 			}
 		}
@@ -119,8 +118,9 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 		for (int i = 0; i < list.size(); i++) {
 			Goods goods = list.get(i);
 			boolean state = goods.isState();
-			if (state)
+			if (state) {
 				newList.add(goods);
+			}
 		}
 		list.removeAll(newList);
 		adapter.notifyDataSetChanged();
@@ -132,7 +132,7 @@ public class ShopCarMainActivity extends Activity implements OnClickListener {
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
 			if (MAINACTION.equals(intent.getAction())) {
-				pay();
+				calculate();
 			}
 		}
 	};

@@ -11,11 +11,12 @@
         android:layout_height="40dp"
         android:layout_centerVertical="true" />
 
+    <!--商品图片-->
     <ImageView
         android:id="@+id/icon"
         android:layout_width="80dp"
-        android:src="@drawable/ic_launcher"
         android:layout_height="80dp"
+        android:src="@drawable/ic_launcher"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/checkBox" />
 
@@ -30,19 +31,22 @@
             android:id="@+id/nameTextView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:text="商品名称"
             android:textColor="#000" />
 
         <TextView
             android:id="@+id/priceTextView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:text="商品价格"
             android:textColor="#000" />
 
         <LinearLayout
-            android:layout_width="120sp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:weightSum="3" >
-
+1
+            <!--+号-->
             <TextView
                 android:id="@+id/addTextView"
                 android:layout_width="fill_parent"
@@ -53,16 +57,18 @@
                 android:textColor="#ff0000"
                 android:textSize="20sp" />
 
+
             <TextView
                 android:id="@+id/numTextView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text=""
+                android:text="商品数量"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
+            <!--减号-->
             <TextView
                 android:id="@+id/mulTextView"
                 android:layout_width="fill_parent"
@@ -73,6 +79,7 @@
                 android:textColor="#ff0000"
                 android:textSize="20sp" />
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

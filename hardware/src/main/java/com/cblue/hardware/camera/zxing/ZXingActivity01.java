@@ -18,6 +18,7 @@ import java.io.File;
 
 /**
  * 二维码生成，保存文件，带logo
+ *   compile group: 'com.google.zxing', name: 'core', version: '3.2.1'
  * Created by pavel on 16/5/30.
  */
 public class ZXingActivity01 extends AppCompatActivity {
@@ -78,6 +79,7 @@ public class ZXingActivity01 extends AppCompatActivity {
     //文件存储根目录
     private String getFileRoot(Context context) {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+
             File external = context.getExternalFilesDir(null);
             if (external != null) {
                 return external.getAbsolutePath();

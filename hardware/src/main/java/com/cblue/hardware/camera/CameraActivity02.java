@@ -38,9 +38,12 @@ public class CameraActivity02 extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
                 // 设置裁剪模式
                 intent.putExtra("crop", "true");  //TODO  这里是字符串，不是布尔值
+
+               // intent.putExtra("circleCrop","true"); //不能实现圆形效果，使用第三方 http://blog.csdn.net/jiantao_yang/article/details/43635581
+
+
                 // aspectX aspectY 剪裁的宽高比例 1:1
                 intent.putExtra("aspectX", 1);
                 intent.putExtra("aspectY", 1);
